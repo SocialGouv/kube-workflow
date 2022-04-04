@@ -3,9 +3,9 @@ entries:
   app:
   - apiVersion: v2
     appVersion: 1.4.13
-    created: "2022-04-04T12:56:32.809276513Z"
+    created: "2022-04-04T13:54:18.559519068Z"
     description: Classic frontend app
-    digest: 36914096bec05b8b52b7cedb3d5e7f5b3d0baf88b5117ca4ca0976235d7a6e0c
+    digest: 1dd84dec247c0ee19ce575181c533f0fb81ef662921414745e23d0eab263fc26
     home: https://github.com/SocialGouv
     icon: https://avatars.githubusercontent.com/u/45039513?v=4
     maintainers:
@@ -339,9 +339,9 @@ entries:
   hasura:
   - apiVersion: v2
     appVersion: 1.4.13
-    created: "2022-04-04T12:56:32.809749117Z"
+    created: "2022-04-04T13:54:18.560010886Z"
     description: Hasura service
-    digest: 0d988ace28baeeb26bf5d5ec5023658f1b6732c79edc505a156ffb4614fc8c38
+    digest: 3d56b34d361f20dbc5fd5d05e6f2825edd3ce02451caa355073071f341bdfac5
     home: https://github.com/SocialGouv
     icon: https://avatars.githubusercontent.com/u/45039513?v=4
     maintainers:
@@ -675,9 +675,9 @@ entries:
   jobs:
   - apiVersion: v2
     appVersion: 1.4.13
-    created: "2022-04-04T12:56:32.810224521Z"
+    created: "2022-04-04T13:54:18.560327398Z"
     description: Jobs
-    digest: d5db875c0eae70683a4473a347d37c8d92ff334fe1de0cac98a633839d4b3032
+    digest: 26cfbe72c3e7f47550709f926c16f71d3b6fb3ba285110ffa26159da59df53da
     home: https://github.com/SocialGouv
     icon: https://avatars.githubusercontent.com/u/45039513?v=4
     maintainers:
@@ -1011,7 +1011,7 @@ entries:
   kube-workflow:
   - apiVersion: v2
     appVersion: 1.4.13
-    created: "2022-04-04T12:56:32.812818542Z"
+    created: "2022-04-04T13:54:18.563243209Z"
     dependencies:
     - condition: app.enabled
       name: app
@@ -1038,7 +1038,7 @@ entries:
       repository: file://./charts/jobs
       version: 1.4.13
     description: Helm template for Kubernetes
-    digest: 94fb4f8b51e7a45f60e21731d05c5e112ad633a91b6ff2d2dcece917a613fc40
+    digest: cd5198f9dc60f5193a5c47e5692503d4e2530ca8bf3b20f710c8606e6276f3fe
     home: https://github.com/SocialGouv/kube-workflow
     icon: https://avatars.githubusercontent.com/u/45039513?v=4
     maintainers:
@@ -1872,9 +1872,9 @@ entries:
   maildev:
   - apiVersion: v2
     appVersion: 1.4.13
-    created: "2022-04-04T12:56:32.813046144Z"
+    created: "2022-04-04T13:54:18.563500219Z"
     description: Classic frontend app
-    digest: e137b334b2261e1821198d4a159097c77aaa47cdec3ae109d95e68eadb4e6ad0
+    digest: b61e71cdc202a40de3ded1a5da42bf592ff34b74e30fd2e51d83301a08d137d6
     home: https://github.com/SocialGouv
     icon: https://avatars.githubusercontent.com/u/45039513?v=4
     maintainers:
@@ -2208,9 +2208,9 @@ entries:
   metabase:
   - apiVersion: v2
     appVersion: 1.4.13
-    created: "2022-04-04T12:56:32.813271746Z"
+    created: "2022-04-04T13:54:18.56378593Z"
     description: Metabase app
-    digest: 12f5d1e096001305842968101d9f6859c018d09798f6e7ef10a4a5486949649f
+    digest: 087998ae81aed6412097d4315a8a04d06dcd64c9e8910ba7e3ee65641970eb2c
     home: https://github.com/SocialGouv
     icon: https://avatars.githubusercontent.com/u/45039513?v=4
     maintainers:
@@ -2544,9 +2544,9 @@ entries:
   pgweb:
   - apiVersion: v2
     appVersion: 1.4.13
-    created: "2022-04-04T12:56:32.813501048Z"
+    created: "2022-04-04T13:54:18.564066141Z"
     description: Pgweb
-    digest: 05d4481ae1d2c4ff607a56da3e35540f0bacdf95c152cf1ed12bc1da2f3d611a
+    digest: 00138e0373ad304c3b98c502ca8df95b8b4bd5deafc349c3789e9967cd004e1d
     home: https://github.com/SocialGouv
     icon: https://avatars.githubusercontent.com/u/45039513?v=4
     maintainers:
@@ -2877,4 +2877,4 @@ entries:
     urls:
     - https://SocialGouv.github.io/kube-workflow/pgweb-1.0.0.tgz
     version: 1.0.0
-generated: "2022-04-04T12:56:32.807669799Z"
+generated: "2022-04-04T13:54:18.558049912Z"
