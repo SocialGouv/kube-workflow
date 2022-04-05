@@ -30,6 +30,30 @@ spec:
       {{- if .Values.waitForPostgres }}
         {{- include "init-containers.wait-for-postgres" . | nindent 8 }}
       {{- end }}
+      {{- if .Values.initContainerCommand }}
+          - image: "{{ or .Values.registry .Values.global.registry }}{{ if (or .Values.imageProject .Values.global.imageProject) }}{{ (print "/" (or .Values.imageProject .Values.global.imageProject)) }}{{ end }}/{{ or .Values.imageRepository .Values.global.imageRepository }}{{ if .Values.imagePackage }}{{ (print "/" .Values.imagePackage) }}{{ end }}:{{ or .Values.imageTag .Values.global.imageTag }}"
+            name: init-container-command
+            args: []
+            command: 
+              {{- if gt (len .Values.initContainerCommand) 0 }}
+              {{- tpl (.Values.initContainerCommand | toYaml) . | nindent 14 }}
+              {{- end }}
+            resources:
+              limits:
+                cpu: {{ .Values.resources.limits.cpu }}
+                memory: {{ .Values.resources.limits.memory }}
+              requests:
+                cpu: {{ .Values.resources.requests.cpu }}
+                memory: {{ .Values.resources.requests.memory }}
+            env:
+              {{- if gt (len .Values.env) 0 }}
+              {{- tpl (.Values.env | toYaml) . | nindent 12 }}
+              {{- end }}
+            envFrom:
+              {{- if gt (len .Values.envFrom) 0 }}
+              {{- tpl (.Values.envFrom | toYaml) . | nindent 12 }}
+              {{- end }}
+      {{- end }}
       volumes:
         {{- if gt (len .Values.volumes) 0 }}
         {{- tpl (.Values.volumes | toYaml) . | nindent 8 }}
