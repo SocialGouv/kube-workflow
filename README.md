@@ -9,7 +9,7 @@ Call it in review, preprod, and prod github workflows
 `.github/workflow/review.yaml`
 
 ```yaml
-- uses: SocialGouv/kube-workflow@master
+- uses: SocialGouv/kube-workflow@v1
   with:
     environment: dev
     token: ${{ secrets.GITHUB_TOKEN }}
