@@ -54,7 +54,10 @@ runs:
         HELM_ARGS: ${{ inputs.helmArgs }}
         DEBUG: "true"
       working-directory: "${{ github.action_path }}"
-      run: packages/workflow/bin/kube-workflow build --cwd ${{ github.workspace }}
+      run: |
+        set -e
+        echo "RANCHER_PROJECT_NAME=$RANCHER_PROJECT_NAME"
+        packages/workflow/bin/kube-workflow build --cwd ${{ github.workspace }}
 
     - name: Archive manifest
       uses: actions/upload-artifact@v2
