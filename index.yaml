@@ -1154,6 +1154,47 @@ entries:
     version: 1.0.0
   kube-workflow:
   - apiVersion: v2
+    appVersion: 1.14.6
+    created: "2022-04-12T08:19:56.380243907Z"
+    dependencies:
+    - condition: app.enabled
+      name: app
+      repository: file://./charts/app
+      version: 1.14.6
+    - condition: hasura.enabled
+      name: hasura
+      repository: file://./charts/hasura
+      version: 1.14.6
+    - condition: maildev.enabled
+      name: maildev
+      repository: file://./charts/maildev
+      version: 1.14.6
+    - condition: metabase.enabled
+      name: metabase
+      repository: file://./charts/metabase
+      version: 1.14.6
+    - condition: pgweb.enabled
+      name: pgweb
+      repository: file://./charts/pgweb
+      version: 1.14.6
+    - condition: jobs.enabled
+      name: jobs
+      repository: file://./charts/jobs
+      version: 1.14.6
+    description: Helm template for Kubernetes
+    digest: fe378b9d8539f4d3df1643d181e0cdfba1b854687fe8086b6020ccb150820e7e
+    home: https://github.com/SocialGouv/kube-workflow
+    icon: https://avatars.githubusercontent.com/u/45039513?v=4
+    maintainers:
+    - email: dsi-incubateur@sg.social.gouv.fr
+      name: Fabrique numérique des Ministères Sociaux
+    name: kube-workflow
+    sources:
+    - https://github.com/SocialGouv/kube-workflow
+    urls:
+    - https://SocialGouv.github.io/kube-workflow/kube-workflow-1.14.6.tgz
+    version: 1.14.6
+  - apiVersion: v2
     appVersion: 1.14.5
     created: "2022-04-12T08:09:41.411318416Z"
     dependencies:
@@ -5010,4 +5051,4 @@ entries:
     urls:
     - https://SocialGouv.github.io/kube-workflow/pgweb-1.0.0.tgz
     version: 1.0.0
-generated: "2022-04-12T08:09:41.406750013Z"
+generated: "2022-04-12T08:19:56.375556941Z"
