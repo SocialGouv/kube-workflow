@@ -59,6 +59,7 @@ runs:
 
     - name: Archive manifest
       uses: actions/upload-artifact@v2
+      continue-on-error: true
       with:
         name: manifests-${{ inputs.actionName || inputs.environment }}.yaml
         path: ${{ env.KWBUILD_PATH }}/manifests.yaml
