@@ -1155,7 +1155,7 @@ entries:
   kube-workflow:
   - apiVersion: v2
     appVersion: 1.14.7
-    created: "2022-04-12T08:26:12.139926018Z"
+    created: "2022-04-12T08:33:09.29246529Z"
     dependencies:
     - condition: app.enabled
       name: app
@@ -1182,7 +1182,7 @@ entries:
       repository: file://./charts/jobs
       version: 1.14.7
     description: Helm template for Kubernetes
-    digest: de90dfcf942212f32674f5305e0dce200dba920a630aa0b75f0fc31b87ae7496
+    digest: d289459668cdc239fe9c4ad66b59ab9f44accccf655e71c16702cd70e26ed9e8
     home: https://github.com/SocialGouv/kube-workflow
     icon: https://avatars.githubusercontent.com/u/45039513?v=4
     maintainers:
@@ -5092,4 +5092,4 @@ entries:
     urls:
     - https://SocialGouv.github.io/kube-workflow/pgweb-1.0.0.tgz
     version: 1.0.0
-generated: "2022-04-12T08:26:12.136033623Z"
+generated: "2022-04-12T08:33:09.287171825Z"
