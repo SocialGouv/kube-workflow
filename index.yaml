@@ -1152,10 +1152,27 @@ entries:
     urls:
     - https://SocialGouv.github.io/kube-workflow/jobs-1.0.0.tgz
     version: 1.0.0
+  kube-webhook:
+  - apiVersion: v2
+    appVersion: 1.14.18
+    created: "2022-04-15T13:07:22.833469637Z"
+    description: Webhook CI for Kubernetes
+    digest: b4064f3f6f25b4f91a0922475864433d1052dae1d65d761618f90c964a752356
+    home: https://github.com/SocialGouv/kube-workflow
+    icon: https://avatars.githubusercontent.com/u/45039513?v=4
+    maintainers:
+    - email: dsi-incubateur@sg.social.gouv.fr
+      name: Fabrique numérique des Ministères Sociaux
+    name: kube-webhook
+    sources:
+    - https://github.com/SocialGouv/kube-workflow
+    urls:
+    - https://SocialGouv.github.io/kube-workflow/kube-webhook-1.14.18.tgz
+    version: 1.14.18
   kube-workflow:
   - apiVersion: v2
     appVersion: 1.14.18
-    created: "2022-04-14T22:51:53.796604611Z"
+    created: "2022-04-15T13:07:22.83631264Z"
     dependencies:
     - condition: app.enabled
       name: app
@@ -1181,8 +1198,8 @@ entries:
       name: jobs
       repository: file://./charts/jobs
       version: 1.14.18
-    description: Helm template for Kubernetes
-    digest: 530b8253ab0ec0e9d3cfb5ce26356ac7e0b422dcb4fd98dde1f886a5802cc785
+    description: Workflow CI for for Kubernetes
+    digest: 0005f62b7ff6f3e7fce4941639321e5ff223e6fb149309bf8a872bf93c9b55ac
     home: https://github.com/SocialGouv/kube-workflow
     icon: https://avatars.githubusercontent.com/u/45039513?v=4
     maintainers:
@@ -5543,4 +5560,4 @@ entries:
     urls:
     - https://SocialGouv.github.io/kube-workflow/pgweb-1.0.0.tgz
     version: 1.0.0
-generated: "2022-04-14T22:51:53.792455651Z"
+generated: "2022-04-15T13:07:22.832555837Z"
