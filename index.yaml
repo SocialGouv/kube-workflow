@@ -1154,6 +1154,22 @@ entries:
     version: 1.0.0
   kube-webhook:
   - apiVersion: v2
+    appVersion: 1.14.21
+    created: "2022-04-16T21:02:12.001819967Z"
+    description: Webhook CI for Kubernetes
+    digest: 365554dcd0f19e3649aff41646ccbbe2eeb5480179b12ea228f0db08193a8d63
+    home: https://github.com/SocialGouv/kube-workflow
+    icon: https://avatars.githubusercontent.com/u/45039513?v=4
+    maintainers:
+    - email: dsi-incubateur@sg.social.gouv.fr
+      name: Fabrique numérique des Ministères Sociaux
+    name: kube-webhook
+    sources:
+    - https://github.com/SocialGouv/kube-workflow
+    urls:
+    - https://SocialGouv.github.io/kube-workflow/kube-webhook-1.14.21.tgz
+    version: 1.14.21
+  - apiVersion: v2
     appVersion: 1.14.20
     created: "2022-04-16T08:41:54.506101012Z"
     description: Webhook CI for Kubernetes
@@ -1202,6 +1218,47 @@ entries:
     - https://SocialGouv.github.io/kube-workflow/kube-webhook-1.14.18.tgz
     version: 1.14.18
   kube-workflow:
+  - apiVersion: v2
+    appVersion: 1.14.21
+    created: "2022-04-16T21:02:12.005360306Z"
+    dependencies:
+    - condition: app.enabled
+      name: app
+      repository: file://./charts/app
+      version: 1.14.21
+    - condition: hasura.enabled
+      name: hasura
+      repository: file://./charts/hasura
+      version: 1.14.21
+    - condition: maildev.enabled
+      name: maildev
+      repository: file://./charts/maildev
+      version: 1.14.21
+    - condition: metabase.enabled
+      name: metabase
+      repository: file://./charts/metabase
+      version: 1.14.21
+    - condition: pgweb.enabled
+      name: pgweb
+      repository: file://./charts/pgweb
+      version: 1.14.21
+    - condition: jobs.enabled
+      name: jobs
+      repository: file://./charts/jobs
+      version: 1.14.21
+    description: Workflow CI for for Kubernetes
+    digest: ca76244d345da43dc3557d8bff9e5018f4da5c06270e40f76f59c9ba437c0936
+    home: https://github.com/SocialGouv/kube-workflow
+    icon: https://avatars.githubusercontent.com/u/45039513?v=4
+    maintainers:
+    - email: dsi-incubateur@sg.social.gouv.fr
+      name: Fabrique numérique des Ministères Sociaux
+    name: kube-workflow
+    sources:
+    - https://github.com/SocialGouv/kube-workflow
+    urls:
+    - https://SocialGouv.github.io/kube-workflow/kube-workflow-1.14.21.tgz
+    version: 1.14.21
   - apiVersion: v2
     appVersion: 1.14.20
     created: "2022-04-16T08:41:54.509647446Z"
@@ -5674,4 +5731,4 @@ entries:
     urls:
     - https://SocialGouv.github.io/kube-workflow/pgweb-1.0.0.tgz
     version: 1.0.0
-generated: "2022-04-16T08:41:54.504789037Z"
+generated: "2022-04-16T21:02:12.000555854Z"
