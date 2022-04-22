@@ -29,6 +29,7 @@ jobs:
           rancherProjectName: "test-project"
           cwd: .github/e2e/standalone-charts
           kubeconfigContext: kind-chart-testing
+          actionName: standalone-charts
       - run: kubectl get jobs -n test-project-ci
       - run: kubectl get jobs -n test-project-ci --field-selector status.successful=1 | grep "job-extra" # additionnal grep to exit 1 on error
   test-action-charts:
@@ -51,6 +52,7 @@ jobs:
           charts: job-extra
           cwd: .github/e2e/standalone-charts
           kubeconfigContext: kind-chart-testing
+          actionName: action-charts
       - run: kubectl get jobs -n test-project-ci
       - run: kubectl get jobs -n test-project-ci --field-selector status.successful=1 | grep "job-extra" # additionnal grep to exit 1 on error
   test-helmArgs:
@@ -74,6 +76,7 @@ jobs:
           cwd: .github/e2e/standalone-charts
           kubeconfigContext: kind-chart-testing
           helmArgs: "--set global.namespace=some-namespace"
+          actionName: test-helmArgs
       - run: kubectl get jobs -n some-namespace
       - run: kubectl get jobs -n some-namespace --field-selector status.successful=1 | grep "job-extra" # additionnal grep to exit 1 on error
   test-values-js:
@@ -95,6 +98,7 @@ jobs:
           rancherProjectName: "test-project"
           cwd: .github/e2e/values-js
           kubeconfigContext: kind-chart-testing
+          actionName: values-js
       - run: kubectl get pods -n test-namespace
       - name: pod is running
         run: kubectl get pods -n test-namespace --field-selector=status.phase=Running | grep "app"
