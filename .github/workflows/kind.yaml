@@ -65,9 +65,7 @@ jobs:
           cwd: .github/e2e/values-js
           kubeconfigContext: kind-chart-testing
           actionName: values-js
-          inlineValues: |
-            global:
-              namespace: custom-namespace
+          inlineValues: '{"global":{"namespace":"custom-namespace"}}'
       - run: kubectl get pods -n custom-namespace
       - name: pod is running
         run: kubectl get pods -n custom-namespace --field-selector=status.phase=Running | grep "app"
