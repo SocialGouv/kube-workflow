@@ -31,6 +31,28 @@ jobs:
           kubeconfigContext: kind-chart-testing
       - run: kubectl get jobs -n test-project-ci
       - run: kubectl get jobs -n test-project-ci --field-selector status.successful=1 | grep "job-extra" # additionnal grep to exit 1 on error
+  test-standalone-charts-2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Kubernetes KinD Cluster
+        uses: helm/kind-action@v1.2.0
+      - run: kubectl cluster-info
+      - run: kubectl version
+      - run: kubectl get pods -n kube-system
+      - run: kubectl create ns test-project-ci
+      - name: test standalone-charts
+        uses: "./"
+        with:
+          environment: prod
+          token: ${{ secrets.GITHUB_TOKEN }}
+          rancherProjectId: "cluster:project"
+          rancherProjectName: "test-project"
+          charts: job-extra
+          cwd: .github/e2e/standalone-charts
+          kubeconfigContext: kind-chart-testing
+      - run: kubectl get jobs -n test-project-ci
+      - run: kubectl get jobs -n test-project-ci --field-selector status.successful=1 | grep "job-extra" # additionnal grep to exit 1 on error
   test-values-js:
     runs-on: ubuntu-latest
     steps:
