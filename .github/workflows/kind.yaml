@@ -72,7 +72,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           rancherProjectId: "cluster:project"
           rancherProjectName: "test-project"
-          charts: job-extra
           cwd: .github/e2e/values-js
           kubeconfigContext: kind-chart-testing
           helmArgs: "--set global.namespace=some-namespace"
