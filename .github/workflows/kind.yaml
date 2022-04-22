@@ -16,9 +16,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Kubernetes KinD Cluster
         uses: helm/kind-action@v1.2.0
-      - run: kubectl cluster-info
-      - run: kubectl version
-      - run: kubectl get pods -n kube-system
       - run: kubectl create ns test-project-ci
       - name: test standalone-charts
         uses: "./"
@@ -38,9 +35,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Kubernetes KinD Cluster
         uses: helm/kind-action@v1.2.0
-      - run: kubectl cluster-info
-      - run: kubectl version
-      - run: kubectl get pods -n kube-system
       - run: kubectl create ns test-project-ci
       - name: test standalone-charts
         uses: "./"
