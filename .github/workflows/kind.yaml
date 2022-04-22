@@ -49,6 +49,31 @@ jobs:
           actionName: action-charts
       - run: kubectl get jobs -n test-project-ci
       - run: kubectl get jobs -n test-project-ci --field-selector status.successful=1 | grep "job-extra" # additionnal grep to exit 1 on error
+  test-custom-values:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Kubernetes KinD Cluster
+        uses: helm/kind-action@v1.2.0
+      - name: test values-js
+        uses: "./"
+        with:
+          environment: prod
+          token: ${{ secrets.GITHUB_TOKEN }}
+          rancherProjectId: "cluster:project"
+          rancherProjectName: "test-project"
+          cwd: .github/e2e/values-js
+          kubeconfigContext: kind-chart-testing
+          actionName: values-js
+          inlineValues: |
+            global:
+              namespace: custom-namespace
+      - run: kubectl get pods -n custom-namespace
+      - name: pod is running
+        run: kubectl get pods -n custom-namespace --field-selector=status.phase=Running | grep "app"
+      - name: ingress is correct
+        run: kubectl get ingress -n custom-namespace --field-selector metadata.name=app -o=jsonpath='{.items[0].spec.rules[0].host}' | grep "test.demo.net"
+
   test-values-js:
     runs-on: ubuntu-latest
     steps:
