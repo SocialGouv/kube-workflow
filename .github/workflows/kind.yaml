@@ -73,12 +73,15 @@ jobs:
           rancherProjectId: "cluster:project"
           rancherProjectName: "test-project"
           charts: job-extra
-          cwd: .github/e2e/standalone-charts
+          cwd: .github/e2e/values-js
           kubeconfigContext: kind-chart-testing
           helmArgs: "--set global.namespace=some-namespace"
           actionName: test-helmArgs
-      - run: kubectl get jobs -n some-namespace
-      - run: kubectl get jobs -n some-namespace --field-selector status.successful=1 | grep "job-extra" # additionnal grep to exit 1 on error
+      - run: kubectl get pods -n some-namespace
+      - name: pod is running
+        run: kubectl get pods -n some-namespace --field-selector=status.phase=Running | grep "app"
+      - name: ingress is correct
+        run: kubectl get ingress -n some-namespace --field-selector metadata.name=app -o=jsonpath='{.items[0].spec.rules[0].host}' | grep "test.demo.net"
   test-values-js:
     runs-on: ubuntu-latest
     steps:
@@ -102,5 +105,5 @@ jobs:
       - run: kubectl get pods -n test-namespace
       - name: pod is running
         run: kubectl get pods -n test-namespace --field-selector=status.phase=Running | grep "app"
-      - name: ingress
+      - name: ingress is correct
         run: kubectl get ingress -n test-namespace --field-selector metadata.name=app -o=jsonpath='{.items[0].spec.rules[0].host}' | grep "test.demo.net"
