@@ -99,5 +99,7 @@ jobs:
             app:
               image: alpine
               command: ["sleep", "30"]
+        env:
+          KW_GIT_REF: v1.2.3
       - run: kubectl get pods -n test-project-ci
       - run: kubectl get pods -n test-project-ci  --field-selector=status.phase=Running | grep "app"
