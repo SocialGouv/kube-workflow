@@ -1155,9 +1155,9 @@ entries:
   kube-webhook:
   - apiVersion: v2
     appVersion: 1.18.1
-    created: "2022-04-25T17:50:00.380031622Z"
+    created: "2022-04-26T08:07:49.29305302Z"
     description: Webhook CI for Kubernetes
-    digest: e7e4e25ca75101615262892a6f92105724f320bacab4334d00386895184a8655
+    digest: 37f03c86f0537631ba3080c41e9660f70b4cdd99c2c0b34c8e0c14a00f90ee29
     home: https://github.com/SocialGouv/kube-workflow
     icon: https://avatars.githubusercontent.com/u/45039513?v=4
     maintainers:
@@ -1556,7 +1556,7 @@ entries:
   kube-workflow:
   - apiVersion: v2
     appVersion: 1.18.1
-    created: "2022-04-25T17:50:00.386251159Z"
+    created: "2022-04-26T08:07:49.296792999Z"
     dependencies:
     - condition: app.enabled
       name: app
@@ -1583,7 +1583,7 @@ entries:
       repository: file://./charts/jobs
       version: 1.18.1
     description: Workflow CI for for Kubernetes
-    digest: 31b9dd5954913c8941982bfa507cb09adf17c0112c96ad291f72626ed2ac58be
+    digest: b729155ee13bb90bd53d98ee4a318880f67ea3a9495522ecc058eb05f32c6cb4
     home: https://github.com/SocialGouv/kube-workflow
     icon: https://avatars.githubusercontent.com/u/45039513?v=4
     maintainers:
@@ -6928,4 +6928,4 @@ entries:
     urls:
     - https://SocialGouv.github.io/kube-workflow/pgweb-1.0.0.tgz
     version: 1.0.0
-generated: "2022-04-25T17:50:00.378901015Z"
+generated: "2022-04-26T08:07:49.291586628Z"
