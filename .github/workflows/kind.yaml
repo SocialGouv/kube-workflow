@@ -72,9 +72,8 @@ jobs:
           cwd: .github/e2e/app-simple
           kubeconfigContext: kind-chart-testing
           inlineValues: |
-            app:
-              image: alpine:stable
-              command: ["sleep", "30"]
+            image: alpine
+            command: ["sleep", "30"]
       - run: kubectl get pods -n test-project-ci
       - run: kubectl get pods -n test-project-ci  --field-selector=status.phase=Running | grep "app"
   app-tag:
@@ -96,9 +95,8 @@ jobs:
           cwd: .github/e2e/app-simple
           kubeconfigContext: kind-chart-testing
           inlineValues: |
-            app:
-              image: alpine
-              command: ["sleep", "30"]
+            image: alpine
+            command: ["sleep", "30"]
         env:
           KW_GIT_REF: v1.18.3
       - run: kubectl get pods -n test-project-ci
