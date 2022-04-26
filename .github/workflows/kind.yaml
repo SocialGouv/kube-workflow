@@ -73,8 +73,8 @@ jobs:
           kubeconfigContext: kind-chart-testing
           inlineValues: |
             app:
-              image: alpine
-              command: ["sleep", "30"]
+              image: nginx
+              containerPort: 80
       - run: kubectl get pods -n test-project-ci
       - run: kubectl get pods -n test-project-ci  --field-selector=status.phase=Running | grep "app"
   app-tag:
@@ -95,7 +95,9 @@ jobs:
           kubeconfigContext: kind-chart-testing
           inlineValues: |
             app:
-              image: alpine
+              imagePackage: nginx
+              registry: docker.io
+              containerPort: 80
               command: ["sleep", "30"]
         env:
           KW_GIT_REF: v1.18.3
