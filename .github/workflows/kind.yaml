@@ -82,7 +82,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: v1.2.3
+          ref: v1.18.3
       - name: Kubernetes KinD Cluster
         uses: helm/kind-action@v1.2.0
       - run: kubectl create ns test-project-ci
@@ -100,6 +100,6 @@ jobs:
               image: alpine
               command: ["sleep", "30"]
         env:
-          KW_GIT_REF: v1.2.3
+          KW_GIT_REF: v1.18.3
       - run: kubectl get pods -n test-project-ci
       - run: kubectl get pods -n test-project-ci  --field-selector=status.phase=Running | grep "app"
