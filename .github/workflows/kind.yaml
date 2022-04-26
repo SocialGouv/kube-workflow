@@ -55,7 +55,29 @@ jobs:
         run: kubectl get pods -n test-namespace --field-selector=status.phase=Running | grep "app"
       - name: ingress
         run: kubectl get ingress -n test-namespace --field-selector metadata.name=app -o=jsonpath='{.items[0].spec.rules[0].host}' | grep "test.demo.net"
-  test-standalone-charts-tag:
+  app-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Kubernetes KinD Cluster
+        uses: helm/kind-action@v1.2.0
+      - run: kubectl create ns test-project-ci
+      - name: test app-simple
+        uses: "./"
+        with:
+          environment: prod
+          token: ${{ secrets.GITHUB_TOKEN }}
+          rancherProjectId: "cluster:project"
+          rancherProjectName: "test-project"
+          cwd: .github/e2e/app-simple
+          kubeconfigContext: kind-chart-testing
+          inlineValues: |
+            app:
+              image: alpine:stable
+              command: ["sleep", "30"]
+      - run: kubectl get pods -n test-project-ci
+      - run: kubectl get pods -n test-project-ci  --field-selector=status.phase=Running | grep "app"
+  app-tag:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -63,18 +85,19 @@ jobs:
           ref: v1.18.3
       - name: Kubernetes KinD Cluster
         uses: helm/kind-action@v1.2.0
-      - run: kubectl cluster-info
-      - run: kubectl version
-      - run: kubectl get pods -n kube-system
       - run: kubectl create ns test-project-ci
-      - name: test standalone-charts
+      - name: test app-simple
         uses: "./"
         with:
           environment: prod
           token: ${{ secrets.GITHUB_TOKEN }}
           rancherProjectId: "cluster:project"
           rancherProjectName: "test-project"
-          cwd: .github/e2e/standalone-charts
+          cwd: .github/e2e/app-simple
           kubeconfigContext: kind-chart-testing
-      - run: kubectl get jobs -n test-project-ci
-      - run: kubectl get jobs -n test-project-ci --field-selector status.successful=1 | grep "job-extra" # additionnal grep to exit 1 on error
+          inlineValues: |
+            app:
+              image: alpine
+              command: ["sleep", "30"]
+      - run: kubectl get pods -n test-project-ci
+      - run: kubectl get pods -n test-project-ci  --field-selector=status.phase=Running | grep "app"
