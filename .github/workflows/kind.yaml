@@ -96,8 +96,7 @@ jobs:
           inlineValues: |
             app:
               imagePackage: nginx
-              imageProject: ""
-              imageRepository: ""
+              imageRepository: "/"
               registry: docker.io
               containerPort: 80
         env:
