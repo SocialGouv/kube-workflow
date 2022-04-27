@@ -94,9 +94,11 @@ jobs:
           cwd: .github/e2e/app-simple
           kubeconfigContext: kind-chart-testing
           inlineValues: |
+            global:
+              imageRepository: ""
             app:
               imagePackage: nginx
-              imageRepository: "/"
+              imageRepository: ""
               registry: docker.io
               containerPort: 80
         env:
