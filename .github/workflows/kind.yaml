@@ -97,6 +97,7 @@ jobs:
             app:
               imagePackage: nginx
               imageProject: ""
+              imageRepository: ""
               registry: docker.io
               containerPort: 80
         env:
