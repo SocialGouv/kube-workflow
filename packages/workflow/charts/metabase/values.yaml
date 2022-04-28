@@ -5,5 +5,6 @@ certSecretName:
 env: []
 envFrom: []
 ingress:
+  enabled: true
   annotations: {}
 needs: []
