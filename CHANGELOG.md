@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.21.1 (2022-05-10)
+
+
+### Bug Fixes
+
+* **oauth2-proxy:** add OAUTH2_PROXY_HTTP_ADDRESS ([#45](https://github.com/SocialGouv/kube-workflow/issues/45)) ([7e23e99](https://github.com/SocialGouv/kube-workflow/commit/7e23e99f21e5302a9fa92934e814892073dc56a1))
+
 ## [1.21.0](https://github.com/SocialGouv/kube-workflow/compare/v1.20.4...v1.21.0) (2022-04-29)
 
 
