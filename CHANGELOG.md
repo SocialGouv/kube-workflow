@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.21.2](https://github.com/SocialGouv/kube-workflow/compare/v1.21.1...v1.21.2) (2022-05-11)
+
+
+### Bug Fixes
+
+* maildev http port ([49d925d](https://github.com/SocialGouv/kube-workflow/commit/49d925dfdd0b16831b5317d7d591f252902264f1))
+
 ### 1.21.1 (2022-05-10)
 
 
