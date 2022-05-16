@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.22.0 (2022-05-16)
+
+
+### Features
+
+* **hasura:** add ingress.enabled ([00459ec](https://github.com/SocialGouv/kube-workflow/commit/00459ec2e0b1efe84a20d3bcc93fc621f95b5a89))
+
 ### 1.21.3 (2022-05-13)
 
 
