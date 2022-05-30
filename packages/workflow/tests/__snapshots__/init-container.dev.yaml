@@ -321,7 +321,7 @@ metadata:
   labels:
     component: app
     application: test-init-container
-  name: app
+  name: test-init-container-app
   namespace: test-init-container-feature-branch-1
 spec:
   rules:

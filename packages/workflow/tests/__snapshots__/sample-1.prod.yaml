@@ -459,7 +459,7 @@ metadata:
   labels:
     component: app-2nd-instance
     application: test-sample-1
-  name: app-2nd-instance
+  name: test-sample-1-app-2nd-instance
   namespace: test-sample-1
 spec:
   rules:
@@ -501,7 +501,7 @@ metadata:
   labels:
     component: app
     application: test-sample-1
-  name: app
+  name: test-sample-1-app
   namespace: test-sample-1
 spec:
   rules:

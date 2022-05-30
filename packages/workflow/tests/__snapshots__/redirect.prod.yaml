@@ -141,7 +141,7 @@ metadata:
   labels:
     component: app
     application: test-redirect
-  name: app
+  name: test-redirect-app
   namespace: test-redirect
 spec:
   rules:

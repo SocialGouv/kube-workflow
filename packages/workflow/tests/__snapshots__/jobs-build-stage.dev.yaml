@@ -808,7 +808,7 @@ metadata:
   labels:
     component: app
     application: test-jobs-build-stage
-  name: app
+  name: test-jobs-build-stage-app
   namespace: test-jobs-build-stage-feature-branch-1
 spec:
   rules:

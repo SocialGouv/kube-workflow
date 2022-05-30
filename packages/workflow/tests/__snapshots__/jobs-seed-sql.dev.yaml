@@ -606,7 +606,7 @@ metadata:
   labels:
     component: app
     application: test-jobs-seed-sql
-  name: app
+  name: test-jobs-seed-sql-app
   namespace: test-jobs-seed-sql-feature-branch-1
 spec:
   rules:

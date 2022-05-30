@@ -141,7 +141,7 @@ metadata:
   labels:
     component: app
     application: test-app-simple
-  name: app
+  name: test-app-simple-app
   namespace: test-app-simple-feature-branch-1
 spec:
   rules:

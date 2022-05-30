@@ -141,7 +141,7 @@ metadata:
   labels:
     component: app
     application: test-long-branch-host-patch
-  name: app
+  name: test-long-branch-host-patch-app
   namespace: test-long-branch-host-patch-feature-branch-1
 spec:
   rules:

@@ -139,7 +139,7 @@ metadata:
   labels:
     component: app
     application: the-awesome
-  name: app
+  name: the-awesome-app
   namespace: test-namespace
 spec:
   rules:

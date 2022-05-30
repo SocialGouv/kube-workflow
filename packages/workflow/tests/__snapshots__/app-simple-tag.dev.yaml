@@ -141,7 +141,7 @@ metadata:
   labels:
     component: app
     application: test-app-simple-tag
-  name: app
+  name: test-app-simple-tag-app
   namespace: test-app-simple-tag-v1-2-3-3sg4dn
 spec:
   rules:

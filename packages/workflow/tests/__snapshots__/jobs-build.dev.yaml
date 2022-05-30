@@ -907,7 +907,7 @@ metadata:
   labels:
     component: app
     application: test-jobs-build
-  name: app
+  name: test-jobs-build-app
   namespace: test-jobs-build-feature-branch-1
 spec:
   rules:

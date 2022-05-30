@@ -148,7 +148,7 @@ metadata:
   labels:
     component: app
     application: test-volume-add
-  name: app
+  name: test-volume-add-app
   namespace: test-volume-add-feature-branch-1
 spec:
   rules:
