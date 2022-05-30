@@ -54,7 +54,7 @@ jobs:
       - name: pod is running
         run: kubectl get pods -n test-namespace --field-selector=status.phase=Running | grep "app"
       - name: ingress
-        run: kubectl get ingress -n test-namespace --field-selector metadata.name=app -o=jsonpath='{.items[0].spec.rules[0].host}' | grep "test.demo.net"
+        run: kubectl get ingress -n test-namespace --field-selector metadata.name=test-project-app -o=jsonpath='{.items[0].spec.rules[0].host}' | grep "test.demo.net"
   app-review:
     runs-on: ubuntu-latest
     steps:
