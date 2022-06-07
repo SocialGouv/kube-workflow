@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.21.3](https://github.com/SocialGouv/kube-workflow/compare/v1.21.2...v1.21.3) (2022-06-07)
+
+
+### Bug Fixes
+
+* increase startupProbe timeout ([b2b36e3](https://github.com/SocialGouv/kube-workflow/commit/b2b36e3f98a691dab91f87d6ef8fcf238ce623ff))
+
 ### [1.21.2](https://github.com/SocialGouv/kube-workflow/compare/v1.21.1...v1.21.2) (2022-05-11)
 
 
