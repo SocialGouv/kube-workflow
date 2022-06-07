@@ -1,0 +1,9 @@
+jobs:
+  runs:
+    - name: db
+      use: SocialGouv/kube-workflow/jobs/copy-storage
+      with:
+        sourceVolumeSecret: "source-account-secret"
+        sourceVolumeContainer: "source-container"
+        destinationVolumeSecret: "destination-account-secret"
+        destinationVolumeContainer: "destination-container"
