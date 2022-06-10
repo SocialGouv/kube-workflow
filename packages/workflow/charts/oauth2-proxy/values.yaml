@@ -9,4 +9,5 @@ envFrom: []
 ingress:
   enabled: true
   annotations: {}
-upstream: 
+upstream:
+additionalArgs: []
