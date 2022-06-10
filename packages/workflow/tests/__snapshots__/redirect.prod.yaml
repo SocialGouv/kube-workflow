@@ -123,7 +123,7 @@ spec:
               cpu: 100m
               memory: 128Mi
           startupProbe:
-            failureThreshold: 12
+            failureThreshold: 30
             httpGet:
               path: /index.html
               port: http
