@@ -1,0 +1,12 @@
+oauth2-proxy:
+  enabled: true
+  upstream: http://some.service:1234
+  envFrom:
+    - secretRef:
+        name: "some-secret"
+  env:
+    - name: SOME_ENV
+      value: "some value"
+  additionalArgs:
+    - --skip-auth-route
+    - ^/public/.*,^/app/dist/.*,^/api/public/.*,^/api/session/.*,^/app/assets/.*
