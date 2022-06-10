@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.22.0 (2022-06-10)
+
+
+### Features
+
+* **oauth2:** add additionnalArgs ([#51](https://github.com/SocialGouv/kube-workflow/issues/51)) ([20e404b](https://github.com/SocialGouv/kube-workflow/commit/20e404bea0f095ecc012d3b4b3fac5534cd8c64f))
+
 ### 1.21.4 (2022-06-10)
 
 ### [1.21.3](https://github.com/SocialGouv/kube-workflow/compare/v1.21.2...v1.21.3) (2022-06-07)
