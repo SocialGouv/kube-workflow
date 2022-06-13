@@ -1,3 +1,5 @@
+# [[DEPRECATED] moving forward to Kontinuous](https://github.com/SocialGouv/kontinuous)
+
 # Kube-Workflow - CI on Kubernetes 🚀
 
 [![schema](./docs/webhook-schema.png)](https://excalidraw.com/#json=gKk7kOn6a9tbmkRZlPige,IQnqqMuiEPgmWbd39GlUYg)
