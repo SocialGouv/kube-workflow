@@ -1154,6 +1154,22 @@ entries:
     version: 1.0.0
   kube-webhook:
   - apiVersion: v2
+    appVersion: 1.22.5
+    created: "2022-06-24T11:45:50.721301074Z"
+    description: Webhook CI for Kubernetes
+    digest: 936f559d51cd7501388b3c4cd30029835eeba62e6144b3aa0359397defaf9e9b
+    home: https://github.com/SocialGouv/kube-workflow
+    icon: https://avatars.githubusercontent.com/u/45039513?v=4
+    maintainers:
+    - email: dsi-incubateur@sg.social.gouv.fr
+      name: Fabrique numérique des Ministères Sociaux
+    name: kube-webhook
+    sources:
+    - https://github.com/SocialGouv/kube-workflow
+    urls:
+    - https://SocialGouv.github.io/kube-workflow/kube-webhook-1.22.5.tgz
+    version: 1.22.5
+  - apiVersion: v2
     appVersion: 1.22.4
     created: "2022-06-24T11:35:48.27322788Z"
     description: Webhook CI for Kubernetes
@@ -1954,6 +1970,59 @@ entries:
     - https://SocialGouv.github.io/kube-workflow/kube-webhook-1.14.18.tgz
     version: 1.14.18
   kube-workflow:
+  - apiVersion: v2
+    appVersion: 1.22.5
+    created: "2022-06-24T11:45:50.73217862Z"
+    dependencies:
+    - condition: app.enabled
+      name: app
+      repository: file://./charts/app
+      version: 1.22.5
+    - condition: hasura.enabled
+      name: hasura
+      repository: file://./charts/hasura
+      version: 1.22.5
+    - condition: maildev.enabled
+      name: maildev
+      repository: file://./charts/maildev
+      version: 1.22.5
+    - condition: metabase.enabled
+      name: metabase
+      repository: file://./charts/metabase
+      version: 1.22.5
+    - condition: oauth2-proxy.enabled
+      name: oauth2-proxy
+      repository: file://./charts/oauth2-proxy
+      version: 1.22.5
+    - condition: pgweb.enabled
+      name: pgweb
+      repository: file://./charts/pgweb
+      version: 1.22.5
+    - condition: jobs.enabled
+      name: jobs
+      repository: file://./charts/jobs
+      version: 1.22.5
+    - condition: keycloak.enabled
+      name: keycloak
+      repository: https://codecentric.github.io/helm-charts
+      version: 17.0.3
+    - condition: redis.enabled
+      name: redis
+      repository: file://./charts/redis
+      version: 1.22.5
+    description: Workflow CI for for Kubernetes
+    digest: 3810c5711af38836938127d16723b2cce866117259e98627f70af50ae6dc4f0a
+    home: https://github.com/SocialGouv/kube-workflow
+    icon: https://avatars.githubusercontent.com/u/45039513?v=4
+    maintainers:
+    - email: dsi-incubateur@sg.social.gouv.fr
+      name: Fabrique numérique des Ministères Sociaux
+    name: kube-workflow
+    sources:
+    - https://github.com/SocialGouv/kube-workflow
+    urls:
+    - https://SocialGouv.github.io/kube-workflow/kube-workflow-1.22.5.tgz
+    version: 1.22.5
   - apiVersion: v2
     appVersion: 1.22.4
     created: "2022-06-24T11:35:48.284392175Z"
@@ -8493,4 +8562,4 @@ entries:
     urls:
     - https://SocialGouv.github.io/kube-workflow/pgweb-1.0.0.tgz
     version: 1.0.0
-generated: "2022-06-24T11:35:48.271762168Z"
+generated: "2022-06-24T11:45:50.719358948Z"
