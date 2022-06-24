@@ -34,3 +34,5 @@ redis:
   enabled: false
 oauth2-proxy:
   enabled: false
+keycloak:
+  enabled: false
