@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.22.2](https://github.com/SocialGouv/kube-workflow/compare/v1.22.1...v1.22.2) (2022-06-24)
+
+
+### Bug Fixes
+
+* keycloak enabled false ([8e79d84](https://github.com/SocialGouv/kube-workflow/commit/8e79d84343146585deea18ca88764f14c04e00c3))
+
 ### 1.22.1 (2022-06-10)
 
 ## 1.22.0 (2022-06-10)
