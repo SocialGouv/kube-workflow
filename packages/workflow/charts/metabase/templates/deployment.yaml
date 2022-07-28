@@ -20,7 +20,7 @@ spec:
         application: {{ .Values.application }}
     spec:
       containers:
-        - image: metabase/metabase:v0.43.3
+        - image: metabase/metabase:v0.43.4
           name: metabase
           env:
             {{- if gt (len .Values.env) 0 }}
