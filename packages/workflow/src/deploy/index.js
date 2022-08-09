@@ -175,6 +175,8 @@ const deployer = async (options) => {
         --logs-all
         --wait-timeout ${kappWaitTimeout}
         --dangerous-override-ownership-of-existing-resources
+        --diff-changes=true
+        --diff-context=4 
         --yes
         -f ${manifestsFile}
     `)
