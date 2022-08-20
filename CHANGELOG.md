@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.22.8](https://github.com/SocialGouv/kube-workflow/compare/v1.22.7...v1.22.8) (2022-08-20)
+
+
+### Bug Fixes
+
+* kapp rancher operator rebaseRule ([dc8140b](https://github.com/SocialGouv/kube-workflow/commit/dc8140b831af1c1825229600872561690915c930))
+
 ### 1.22.7 (2022-08-10)
 
 
