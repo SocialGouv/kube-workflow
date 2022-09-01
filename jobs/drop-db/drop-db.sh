@@ -1,7 +1,8 @@
 #!/bin/bash
+set -e
 
 # check mandatory environment variables
-MANDATORY_VARS="PGPASSWORD PGHOST PGUSER DATABASE"
+MANDATORY_VARS="PGPASSWORD PGHOST PGUSER DATABASE DATABASE_USER"
 for VAR in $MANDATORY_VARS; do
   if [[ -z "${!VAR}" ]]; then
     echo "${VAR} environment variable is empty"
@@ -11,8 +12,11 @@ done
 
 PGPORT=${PGPORT:-5432}
 
+# arobase replacement
 PG_URL_ADMIN="postgresql://${PGUSER/@/%40}:${PGPASSWORD}@${PGHOST}:${PGPORT}/postgres"
+DROP_USER_BASE=${DATABASE_USER%%@*}
 
+echo
 echo "disconnect activities on database ${DATABASE} on ${PGHOST}"
 psql -abe "$PG_URL_ADMIN" -c "
   SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;
@@ -22,4 +26,22 @@ psql -abe "$PG_URL_ADMIN" -c "
   WHERE pg_stat_activity.datname = '${DATABASE}';
 "
 
-dropdb "$DATABASE" || true
+echo
+echo "deleting database ${DATABASE} on ${PGHOST}"
+# dropdb "$DATABASE"
+psql -abe "$PG_URL_ADMIN" <<EOF
+  SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;
+  DROP DATABASE "$DATABASE";
+EOF
+
+echo
+echo "deleting user ${DROP_USER_BASE} on ${PGHOST}"
+psql -abe "$PG_URL_ADMIN" <<EOF
+  SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;
+  REVOKE ALL PRIVILEGES ON SCHEMA public FROM "$DROP_USER_BASE";
+  REVOKE ALL PRIVILEGES ON ALL TABLES IN SCHEMA public FROM "$DROP_USER_BASE";
+  REVOKE ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public FROM "$DROP_USER_BASE";
+  REVOKE ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public FROM "$DROP_USER_BASE";
+  DROP OWNED BY "${DROP_USER_BASE}" CASCADE;
+  DROP USER "${DROP_USER_BASE}";
+EOF
