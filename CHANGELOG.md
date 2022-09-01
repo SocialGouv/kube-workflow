@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.22.10](https://github.com/SocialGouv/kube-workflow/compare/v1.22.9...v1.22.10) (2022-09-01)
+
+
+### Bug Fixes
+
+* drop-db close sessions ([bc0979d](https://github.com/SocialGouv/kube-workflow/commit/bc0979d08030cee7aa4bd852e2e831047ea7dff9))
+
 ### [1.22.9](https://github.com/SocialGouv/kube-workflow/compare/v1.22.8...v1.22.9) (2022-09-01)
 
 
