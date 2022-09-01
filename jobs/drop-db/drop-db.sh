@@ -11,6 +11,8 @@ done
 
 PGPORT=${PGPORT:-5432}
 
+PG_URL_ADMIN="postgresql://${PGUSER/@/%40}:${PGPASSWORD}@${PGHOST}:${PGPORT}/postgres"
+
 echo "disconnect activities on database ${DATABASE} on ${PGHOST}"
 psql -abe "$PG_URL_ADMIN" -c "
   SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;
