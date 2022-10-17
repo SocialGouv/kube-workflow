@@ -123,7 +123,7 @@ spec:
               cpu: 500m
               memory: 512Mi
             requests:
-              cpu: 100m
+              cpu: 50m
               memory: 128Mi
           startupProbe:
             failureThreshold: 30
@@ -159,5 +159,24 @@ spec:
     - hosts:
         - test-app-simple-tag-v1-2-3-3sg4dn.dev.fabrique.social.gouv.fr
       secretName: wildcard-crt
+---
+apiVersion: kapp.k14s.io/v1alpha1
+kind: Config
+rebaseRules:
+  - path:
+      - metadata
+      - annotations
+      - field.cattle.io/publicEndpoints
+    type: copy
+    sources:
+      - existing
+    resourceMatchers:
+      - apiVersionKindMatcher:
+          apiVersion: apps/v1
+          kind: Deployment
+metadata:
+  namespace: test-app-simple-tag-v1-2-3-3sg4dn
+  annotations:
+    kapp.k14s.io/disable-original: ''
 "
 `;
