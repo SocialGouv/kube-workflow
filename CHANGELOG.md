@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.22.13 (2022-10-17)
+
+
+### Bug Fixes
+
+* lower default cpu resources ([#56](https://github.com/SocialGouv/kube-workflow/issues/56)) ([ffe3702](https://github.com/SocialGouv/kube-workflow/commit/ffe370213250cd0fab019945977b77902201efca))
+
 ### [1.22.12](https://github.com/SocialGouv/kube-workflow/compare/v1.22.11...v1.22.12) (2022-09-01)
 
 
