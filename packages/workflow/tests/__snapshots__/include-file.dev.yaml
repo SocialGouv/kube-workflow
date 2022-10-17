@@ -223,5 +223,24 @@ spec:
             - name: workflow
               persistentVolumeClaim:
                 claimName: jobs-shared-storage
+---
+apiVersion: kapp.k14s.io/v1alpha1
+kind: Config
+rebaseRules:
+  - path:
+      - metadata
+      - annotations
+      - field.cattle.io/publicEndpoints
+    type: copy
+    sources:
+      - existing
+    resourceMatchers:
+      - apiVersionKindMatcher:
+          apiVersion: apps/v1
+          kind: Deployment
+metadata:
+  namespace: test-include-file-feature-branch-1
+  annotations:
+    kapp.k14s.io/disable-original: ''
 "
 `;
