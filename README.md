@@ -261,3 +261,4 @@ Resources:
 - [Kubernetes doc](https://kubernetes.io/docs/concepts/)
 - [Helm doc](https://helm.sh/docs/)
 - [Kapp doc](https://carvel.dev/kapp/docs/v0.46.0/)
+
