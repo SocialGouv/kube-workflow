@@ -146,7 +146,7 @@ runs:
         env_url: ${{ steps.environment-url.outputs.url }}
 
     - name: Debug manifests
-      uses: SocialGouv/actions/k8s-manifests-debug@debug
+      uses: SocialGouv/actions/k8s-manifests-debug@revolunet-patch-3
       with:
         token: ${{ inputs.token }}
         path: ${{ env.KW_BUILD_PATH }}/manifests.yaml
