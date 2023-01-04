@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.22.14 (2023-01-04)
+
+
+### Bug Fixes
+
+* **metabase:** set securityContext ([#58](https://github.com/SocialGouv/kube-workflow/issues/58)) ([98da6ba](https://github.com/SocialGouv/kube-workflow/commit/98da6bab38b7cde4f491bcb93ef3c16347a81f73))
+
 ### 1.22.13 (2022-10-17)
 
 
