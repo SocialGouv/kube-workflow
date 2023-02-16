@@ -1,0 +1,4 @@
+app-www:
+  ingress:
+    annotations:
+      pouet: "42"

@@ -9,7 +9,7 @@ metadata:
     {{- include "annotations.letsencrypt-cert" . | nindent 4 }}
     {{- end }}
     nginx.ingress.kubernetes.io/permanent-redirect: https://{{- include "defaults.ingress-host" . -}}$request_uri
-    {{- range $key, $val := (merge .Values.global.ingress.annotations .Values.ingress.annotations) }}
+    {{- range $key, $val := (merge dict .Values.global.ingress.annotations .Values.ingress.annotations) }}
     "{{ $key }}": |
       {{- $val | nindent 6 }}
     {{- end }}
