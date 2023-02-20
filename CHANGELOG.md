@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.22.15 (2023-02-20)
+
+
+### Bug Fixes
+
+* **helm:** use merge+dict to prevent memoize fix [#59](https://github.com/SocialGouv/kube-workflow/issues/59) ([6f1d5ed](https://github.com/SocialGouv/kube-workflow/commit/6f1d5ed03b1acc9e3da6ff2005006ec76c394486))
+
 ### 1.22.14 (2023-01-04)
 
 
