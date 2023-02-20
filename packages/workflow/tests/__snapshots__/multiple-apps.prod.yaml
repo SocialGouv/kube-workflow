@@ -1,0 +1,299 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`multiple-apps.prod 1`] = `
+"apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    field.cattle.io/projectId: '1234'
+    kubeworkflow/gitBranch: feature-branch-1
+    kubeworkflow/mainNamespace: 'true'
+    kapp.k14s.io/exists: ''
+  labels:
+    application: test-multiple-apps
+  name: test-multiple-apps
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: netpol-ingress
+  namespace: test-multiple-apps
+  annotations:
+    kapp.k14s.io/disable-original: ''
+spec:
+  ingress:
+    - from:
+        - podSelector: {}
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              network-policy/source: ingress-controller
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              network-policy/source: monitoring
+  podSelector: {}
+  policyTypes:
+    - Ingress
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: default
+  namespace: test-multiple-apps
+  annotations:
+    kapp.k14s.io/disable-original: ''
+automountServiceAccountToken: false
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    component: app-api
+    application: test-multiple-apps
+  name: app-api
+  namespace: test-multiple-apps
+  annotations:
+    kapp.k14s.io/disable-default-ownership-label-rules: ''
+    kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/disable-original: ''
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000
+  selector:
+    component: app-api
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    component: app-www
+    application: test-multiple-apps
+  name: app-www
+  namespace: test-multiple-apps
+  annotations:
+    kapp.k14s.io/disable-default-ownership-label-rules: ''
+    kapp.k14s.io/disable-default-label-scoping-rules: ''
+    kapp.k14s.io/disable-original: ''
+spec:
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000
+  selector:
+    component: app-www
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    component: app-api
+    application: test-multiple-apps
+  name: app-api
+  namespace: test-multiple-apps
+  annotations:
+    kapp.k14s.io/change-group: kube-workflow/test-multiple-apps
+    kapp.k14s.io/change-group.app-api: kube-workflow/app-api.test-multiple-apps
+    kapp.k14s.io/disable-original: ''
+    kapp.k14s.io/create-strategy: fallback-on-update
+    kapp.k14s.io/update-strategy: fallback-on-replace
+    kapp.k14s.io/nonce: ''
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: app-api
+  template:
+    metadata:
+      labels:
+        component: app-api
+        application: test-multiple-apps
+    spec:
+      containers:
+        - image: ghcr.io/socialgouv/test-multiple-apps/app:prod
+          livenessProbe:
+            failureThreshold: 15
+            httpGet:
+              path: /index.html
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 5
+            timeoutSeconds: 5
+          name: app
+          ports:
+            - containerPort: 3000
+              name: http
+          readinessProbe:
+            failureThreshold: 15
+            httpGet:
+              path: /index.html
+              port: http
+            initialDelaySeconds: 0
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 50m
+              memory: 128Mi
+          startupProbe:
+            failureThreshold: 30
+            httpGet:
+              path: /index.html
+              port: http
+            periodSeconds: 5
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    component: app-www
+    application: test-multiple-apps
+  name: app-www
+  namespace: test-multiple-apps
+  annotations:
+    kapp.k14s.io/change-group: kube-workflow/test-multiple-apps
+    kapp.k14s.io/change-group.app-www: kube-workflow/app-www.test-multiple-apps
+    kapp.k14s.io/disable-original: ''
+    kapp.k14s.io/create-strategy: fallback-on-update
+    kapp.k14s.io/update-strategy: fallback-on-replace
+    kapp.k14s.io/nonce: ''
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: app-www
+  template:
+    metadata:
+      labels:
+        component: app-www
+        application: test-multiple-apps
+    spec:
+      containers:
+        - image: ghcr.io/socialgouv/test-multiple-apps/app:prod
+          livenessProbe:
+            failureThreshold: 15
+            httpGet:
+              path: /index.html
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 5
+            timeoutSeconds: 5
+          name: app
+          ports:
+            - containerPort: 3000
+              name: http
+          readinessProbe:
+            failureThreshold: 15
+            httpGet:
+              path: /index.html
+              port: http
+            initialDelaySeconds: 0
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 50m
+              memory: 128Mi
+          startupProbe:
+            failureThreshold: 30
+            httpGet:
+              path: /index.html
+              port: http
+            periodSeconds: 5
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io: cluster-issuer
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/tls-acme: 'true'
+    kapp.k14s.io/disable-original: ''
+  labels:
+    component: app-api
+    application: test-multiple-apps
+  name: app-api
+  namespace: test-multiple-apps
+spec:
+  rules:
+    - host: app-api-test-multiple-apps.fabrique.social.gouv.fr
+      http:
+        paths:
+          - backend:
+              service:
+                name: app-api
+                port:
+                  name: http
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - app-api-test-multiple-apps.fabrique.social.gouv.fr
+      secretName: app-api-crt
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    pouet: |
+      42
+    cert-manager.io: cluster-issuer
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/tls-acme: 'true'
+    kapp.k14s.io/disable-original: ''
+  labels:
+    component: app-www
+    application: test-multiple-apps
+  name: app-www
+  namespace: test-multiple-apps
+spec:
+  rules:
+    - host: app-www-test-multiple-apps.fabrique.social.gouv.fr
+      http:
+        paths:
+          - backend:
+              service:
+                name: app-www
+                port:
+                  name: http
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - app-www-test-multiple-apps.fabrique.social.gouv.fr
+      secretName: app-www-crt
+---
+apiVersion: kapp.k14s.io/v1alpha1
+kind: Config
+rebaseRules:
+  - path:
+      - metadata
+      - annotations
+      - field.cattle.io/publicEndpoints
+    type: copy
+    sources:
+      - existing
+    resourceMatchers:
+      - apiVersionKindMatcher:
+          apiVersion: apps/v1
+          kind: Deployment
+metadata:
+  namespace: test-multiple-apps
+  annotations:
+    kapp.k14s.io/disable-original: ''
+"
+`;
